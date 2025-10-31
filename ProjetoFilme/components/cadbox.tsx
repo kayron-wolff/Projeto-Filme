@@ -3,7 +3,11 @@ import { Text, StyleSheet, View, TouchableOpacity, Dimensions,TextInput } from '
 
 const {width, height} = Dimensions.get('window');
 
-export default function CadBox() {
+type CadBoxProps = {
+    pressing: () => void
+}
+
+export default function CadBox({pressing}: CadBoxProps) {
     return (
         <View style={style.container}>
             <View style={style.box}>
@@ -14,7 +18,7 @@ export default function CadBox() {
             placeholder="Crie um Nome de Usuário"
             
             />
-            <TouchableOpacity style={style.btn}>
+            <TouchableOpacity style={style.btn} onPress={pressing}>
                 <Text style={style.btntxt}>Registrar</Text>
             </TouchableOpacity>
         </View>
@@ -31,7 +35,8 @@ const style = StyleSheet.create({
         minWidth: 250,
         minHeight: 25,
         color: 'white',
-        textAlign: 'center'
+        textAlign: 'center',
+        marginBottom: 12
 
     },
     label:{
@@ -51,7 +56,8 @@ const style = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'rgba(0,0,0,0.2)',
         borderRadius: 8,
-        backgroundColor: 'rgba(200,200,200,0.3)',
+        backgroundColor: 'rgba(200,200,200,0.2)',
+        backdropFilter: 'blur(20px)',
         marginVertical: 8
     },
     title: {

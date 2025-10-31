@@ -12,7 +12,7 @@ export default function app() {
     return (
     <LinearGradient colors={['rgb(23,0,28)', 'rgb(30,0,40)', 'rgb(23,0,28)']} start={{x: 1, y:0}} end={{x:0, y:1}} style={global.view}>
     <SafeAreaView style={global.view}>
-        <CadBox />
+        <CadBox pressing={() => tout.push('/(tabs)/home')}/>
         <TouchableOpacity style={style.btn} onPress={() => tout.push('/')}>
             <Text style={style.btntxt}>Voltar ao Início</Text>
         </TouchableOpacity>
