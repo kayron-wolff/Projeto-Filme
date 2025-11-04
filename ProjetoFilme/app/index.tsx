@@ -1,5 +1,5 @@
 import React from "react";
-import {Text, StyleSheet, View, TouchableOpacity} from 'react-native';
+import {Text, StyleSheet, View, TouchableOpacity, TextInput} from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { global }from '@/components/safeareaview';
 import { useRouter } from "expo-router";
@@ -11,17 +11,14 @@ export default function app() {
     const tout = useRouter();
     return (
     <LinearGradient colors={['rgb(23,0,28)', 'rgb(30,0,40)', 'rgb(23,0,28)']} start={{x: 1, y:0}} end={{x:0, y:1}} style={global.view}>
-    <SafeAreaView style={global.view}>
-        <CadBox pressing={() => tout.push('/(tabs)/home')}/>
-        <TouchableOpacity style={style.btn} onPress={() => tout.push('/')}>
-            <Text style={style.btntxt}>Voltar ao Início</Text>
-        </TouchableOpacity>
-    </SafeAreaView>
+        <SafeAreaView style={global.view}>
+            <CadBox/>
+        </SafeAreaView>
     </LinearGradient>
     )
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     btntxt: {
         fontSize: 18,
         fontWeight: 'bold'
