@@ -1,55 +1,54 @@
-import React,{useState} from "react";
-import { Text, StyleSheet, View, TouchableOpacity, TextInput } from 'react-native';
+import React from "react";
+import {Text, StyleSheet, View, TextInput, TouchableOpacity} from 'react-native';
+import { useState } from "react";
 import { useRouter } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-
-
-export default function CadBox() {
-    const [nome, setNome] = useState('');
+export default function Login() {
     const [senha, setSenha] = useState('');
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
+    
+    async function getSenha() {
+        try {
+            const storedSenha = await AsyncStorage.getItem('senha');
+            return storedSenha;
+        } catch (error) {
+            console.log('Erro ao recuperar a senha:', error);
+            return null;
+        }
+    }
 
-    const salvarSenha = async (senha: string) => {
-            try {
-                await AsyncStorage.setItem('senha', senha);
-            } catch (error) {
-                console.log('Erro ao salvar a senha:', error);
-            }
+    async function getEmail() {
+        try {
+            const storedSenha = await AsyncStorage.getItem('email');
+            return storedSenha;
+        } catch (error) {
+            console.log('Erro ao recuperar a senha:', error);
+            return null;
         }
-        
-        const salvarEmail = async (email: string) => {
-            try {
-                await AsyncStorage.setItem('email', email);
-            } catch (error) {
-                console.log('Erro ao salvar o email:', error);
-            }
-        }
+    }
 
     const rout = useRouter();
-
-    const alternarLoading = () => {
-        salvarEmail(email);
-        salvarSenha(senha);
-        setLoading(true);
-        setTimeout(() => {
-            setLoading(false);
-            rout.push('/login');
-        }, 3000);
+        
+    const alternarLoading = async () => {
+        if(email == await getEmail() && senha == await getSenha()){
+            setTimeout(() => {
+                setLoading(false);
+                rout.push('/(tabs)/home');
+            }, 3000);
+            setLoading(true);
+        }else{
+            setTimeout(()=>{
+                rout.push('/')
+            })
+        }
     }
+
     return (
         <View style={style.container}>
             <View style={style.box}>
-                <Text style={style.title}>Cadastro</Text>
-                <Text style={style.label}>Nome</Text>
-                <TextInput 
-                style={style.input}
-                placeholder="Crie um Nome de Usuário"
-                value={nome}
-                onChangeText={setNome}
-                keyboardType="default"
-                />
+                <Text style={style.title}>Login</Text>
                 <Text style={style.label}>Digite seu E-mail</Text>
                 <TextInput
                 style={style.input}
@@ -58,10 +57,10 @@ export default function CadBox() {
                 onChangeText={setEmail}
                 keyboardType="email-address"
                 />
-                <Text style={style.label}>Crie uma Senha</Text>
+                <Text style={style.label}>Digite sua Senha</Text>
                 <TextInput
                 style={style.input}
-                placeholder="Crie uma Senha"
+                placeholder="Digite sua Senha"
                 secureTextEntry={true}
                 value={senha}
                 onChangeText={setSenha}
@@ -72,7 +71,6 @@ export default function CadBox() {
                 </TouchableOpacity>
             </View>
         </View>
-        
     )
 }
 
