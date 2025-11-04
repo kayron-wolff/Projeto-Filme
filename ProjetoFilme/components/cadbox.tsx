@@ -61,19 +61,20 @@ const style = StyleSheet.create({
     input: {
         borderWidth: 1,
         borderRadius: 40,
-        borderColor: 'white',
+        borderColor: 'black',
         minWidth: 300,
         minHeight: 40,
-        color: 'white',
+        color: 'black',
         textAlign: 'center',
-        marginBottom: 20
+        marginBottom: 20,
+        fontSize: 20
 
     },
     label:{
         fontSize: 18,
         fontWeight: 'bold',
         textAlign: 'center',
-        color: 'white'
+        color: 'black'
     },
     container:{
         /*... StyleSheet.absoluteFillObject,*/
@@ -93,7 +94,7 @@ const style = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold',
         marginBottom: 12,
-        color: 'white',
+        color: 'black',
         textAlign: 'center'
     },
     btntxt: {
