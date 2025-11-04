@@ -11,7 +11,7 @@ export default function TabLayout() {
       tabBarShowLabel: false,
     tabBarStyle: {
       backgroundColor: 'rgba(255,255,255,0.2)',
-      backdropFilter: 'blur(40px)',
+      backdropFilter: 'blur(10px)',
       borderTopWidth: 0,
       height: 40,
       position:'absolute',
