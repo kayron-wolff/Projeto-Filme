@@ -16,7 +16,7 @@ export default function app() {
                 <Image source={{ uri: String(filmeImg)}} style={styles.filmeImg}/>
                 <Text style={styles.title}>{filmeName}</Text>
                 </View>
-                <Text>{filmeDesc}</Text>
+                <Text style={styles.desc}>{filmeDesc}</Text>
             </SafeAreaView>
         </LinearGradient>
     )
@@ -40,6 +40,12 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: 'bold',
         color: '#fff'
+    },
+    desc:{
+        marginTop: 20,
+        fontSize: 16,
+        color: '#fff',
+        textAlign: 'justify'
     }
 
 })

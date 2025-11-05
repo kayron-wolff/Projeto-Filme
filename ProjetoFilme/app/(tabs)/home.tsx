@@ -33,7 +33,7 @@ export default function app() {
     };
     const aladdin = {
         filmeImg: "https://tse3.mm.bing.net/th/id/OIP.4uzBnFsDNsLF_ZGvddFq8gHaLH?rs=1&pid=ImgDetMain&o=7&rm=3",
-        filmeName: 'Aladin (2019)',
+        filmeName: 'Aladdin (2019)',
         filmeDesc: `"Aladdin" (2019) é um remake live-action da Disney que acompanha um jovem humilde que encontra uma lâmpada mágica com um gênio capaz de conceder desejos, e usa essa chance para conquistar o amor da princesa Jasmine e enfrentar o vilão Jafar.`,
         a: 'rgba(255, 0, 0, 1)',
         b: 'rgba(255, 153, 0, 1)',

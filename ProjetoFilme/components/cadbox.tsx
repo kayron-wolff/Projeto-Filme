@@ -26,12 +26,21 @@ export default function CadBox() {
                 console.log('Erro ao salvar o email:', error);
             }
         }
+        
+        const salvarNome = async (nome: string) => {
+            try {
+                await AsyncStorage.setItem('nome', nome);
+            } catch (error) {
+                console.log('Erro ao salvar o nome:', error);
+            }
+        }
 
     const rout = useRouter();
 
     const alternarLoading = () => {
         salvarEmail(email);
         salvarSenha(senha);
+        salvarNome(nome);
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
