@@ -67,7 +67,7 @@ export default function Login() {
                 keyboardType="visible-password"
                 />
                 <TouchableOpacity style={style.btn} onPress={alternarLoading} disabled={loading}>
-                    <Text style={style.btntxt}>{loading ? 'Aguarde...' : 'Login'}</Text>
+                    <Text style={style.btntxt}>{loading ? 'Aguarde...' : 'Entrar'}</Text>
                 </TouchableOpacity>
             </View>
         </View>
